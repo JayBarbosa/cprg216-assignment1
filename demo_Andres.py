@@ -43,7 +43,9 @@ while True:
       elif gpa_input == "-1":
         break
 
-   
+  
+
+  #ignore this "else for now"
   else:
    print('Please answer Yes or No')
 
