@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../CPRG=213"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "CPRG=213"
+	}
+}
