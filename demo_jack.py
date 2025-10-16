@@ -1,0 +1,57 @@
+def new_func():
+    '''
+. Set an input to welcome new students
+2. Ask if the user want to start (add a new student)
+3. Please insert the GPA for each course
+   a.If answers is "no" print students name
+   b. if the user enters -1, student is done with its GPA
+   c. if student doesnt enter any GPA, is in first semester
+4.get the average from the GPA's
+5.at the end show accumulative average GPAs
+'''
+
+print("Welcome to the Grade Registry Program")
+
+gpa_list = [] 
+student_list = {}
+while True:
+    new_student = input("Would you like to register a new student? Yes/No: ").strip().lower()
+     
+    if new_student == "no":
+         break
+    elif new_student == "yes":
+        student_name = input("Enter the student's name: ").strip()
+    else:
+        print('Please answer Yes or No')
+        
+
+         
+        
+        print("Please enter the student's GPA values.")
+        print("Type -1 when you finish, or press enter if the student is in their first semester.")
+
+        while True:
+            gpa_input = input("GPA: ").strip()
+            
+            if gpa_input == "":
+                print("The student is in their first semester.")
+                break
+            elif gpa_input == "-1":
+                break
+            else:
+                try:
+                    gpa_value = float(gpa_input)
+                    if 0.0 <= gpa_value <= 4.0:
+                        gpa_list.append(gpa_value)
+                    else:
+                        print("Please enter a valid GPA between 0.0 and 4.0.")
+                except ValueError:
+                    print("Invalid input. Please enter a numeric GPA value.")
+
+        if gpa_list:
+            average_gpa = sum(gpa_list) / len(gpa_list)
+            student_list[student_name] = average_gpa
+            print(f"{student_name}'s average GPA is {average_gpa:.2f}")
+        else:
+            print(f"{student_name} has no GPA records.")
+
