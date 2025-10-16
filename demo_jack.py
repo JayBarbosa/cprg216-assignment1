@@ -12,7 +12,6 @@ def new_func():
 
 print("Welcome to the Grade Registry Program")
 
-gpa_list = [] 
 student_list = {}
 while True:
     new_student = input("Would you like to register a new student? Yes/No: ").strip().lower()
@@ -21,12 +20,10 @@ while True:
          break
     elif new_student == "yes":
         student_name = input("Enter the student's name: ").strip()
-    else:
-        print('Please answer Yes or No')
         
+        # start a fresh GPA list for this student so previous entries don't carry over
+        gpa_list = []
 
-         
-        
         print("Please enter the student's GPA values.")
         print("Type -1 when you finish, or press enter if the student is in their first semester.")
 
@@ -55,3 +52,6 @@ while True:
         else:
             print(f"{student_name} has no GPA records.")
 
+print("All registered students and their average GPAs:")
+for name, avg_gpa in student_list.items():
+    print(f"{name}'s average GPA is {avg_gpa:.2f}")
