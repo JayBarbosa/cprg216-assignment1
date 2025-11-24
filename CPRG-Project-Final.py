@@ -13,21 +13,13 @@ def new_func():
 print("Welcome to the Grade Registry Program")
 
 student_list = {}
-while True:
-    new_student = input("Would you like to register a new student? Yes/No: ").strip().lower()
-     
-    if new_student == "no":
-         break
-    elif new_student == "yes":
-        student_name = input("Enter the student's name: ").strip()
-        
-        # start a fresh GPA list for this student so previous entries don't carry over
-        gpa_list = []
-
-        print("Please enter the student's GPA values.")
-        print("Type -1 when you finish, or press enter if the student is in their first semester.")
-
-        while True:
+def add_student():
+    student_name = input("Enter the student's name: ").strip()
+    
+def add_gpatostudent():
+    print("Please enter the student's GPA values.")
+    print("Type -1 when you finish, or press enter if the student is in their first semester.")
+    while True:
             gpa_input = input("GPA: ").strip()
             
             if gpa_input == "":
@@ -44,7 +36,20 @@ while True:
                         print("Please enter a valid GPA between 0.0 and 4.0.")
                 except ValueError:
                     print("Invalid input. Please enter a numeric GPA value.")
-
+def view_gpa_list():
+    print("All registered students and their average GPAs:")
+    for name, avg_gpa in student_list.items():
+        print(f"{name}'s average GPA is {avg_gpa:.2f}")
+while True:
+    new_student = input("Would you like to register a new student? Yes/No: ").strip().lower()
+     
+    if new_student == "no":
+         break
+    elif new_student == "yes":
+        add_student()
+        # start a fresh GPA list for this student so previous entries don't carry over
+        gpa_list = []
+        add_gpatostudent()
         if gpa_list:
             average_gpa = sum(gpa_list) / len(gpa_list)
             student_list[student_name] = average_gpa
@@ -52,6 +57,4 @@ while True:
         else:
             print(f"{student_name} has no GPA records.")
 
-print("All registered students and their average GPAs:")
-for name, avg_gpa in student_list.items():
-    print(f"{name}'s average GPA is {avg_gpa:.2f}")
+view_gpa_list()
